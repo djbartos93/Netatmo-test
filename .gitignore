@@ -8,7 +8,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
-access token.txt
+access-token.txt
 netatmo-api.rb
 netatmo-temp.rb
 ## Specific to RubyMotion:
