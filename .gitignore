@@ -11,6 +11,8 @@
 access-token.txt
 netatmo-api.rb
 netatmo-temp.rb
+/config/local_env.yml
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history
