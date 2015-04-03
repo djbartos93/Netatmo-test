@@ -1,0 +1,6 @@
+#this is the local_env file.
+#there is lots of important shit here.
+#passwords and stuff go in here
+#eventually this will automatically get filled in, but for now. FUCK IT.
+
+access_token: 'Access_Token_goes_here'
