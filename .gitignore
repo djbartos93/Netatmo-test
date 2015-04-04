@@ -3,7 +3,7 @@
 
 access-token.txt
 netatmo-temp.rb
-
+.token.yaml
 config.yml
 config/
 
