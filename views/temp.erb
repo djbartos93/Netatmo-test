@@ -1,0 +1,9 @@
+<p>
+  Current Temp: <%= @data['body'][0]['value'] %>
+</p>
+
+<p>
+  <% @data['body'].each do |temp| %>
+  <span><%= temp['value'][0][0] %></span>
+  <% end %>
+</p>
