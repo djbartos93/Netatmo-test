@@ -1,6 +1,11 @@
 require 'net/https'
 require 'uri'
+require 'yaml'
+require 'json'
 
+parsed = begin
+  YAML.load(FIle.open("/config/local_env.yml"))
+end
 
 uri = URI.parse('http://api.netatmo.net/api/getmeasure?')
 response = Net::HTTP.post_form(uri, {
@@ -9,4 +14,4 @@ response = Net::HTTP.post_form(uri, {
   'scale' => '30min',
   'type' => 'Temperature',
   'limit' => '1'})
-print response.body
+print JSON.parse response.body

@@ -14,3 +14,6 @@ response = Net::HTTP.post_form(uri, {
   'scope' => 'read_station or SEE API DOCS'})
 
 puts response.body
+
+output = File.open('config/local_env.yml', 'w')
+output.puts YAML.dump(JSON.parse response.body)
