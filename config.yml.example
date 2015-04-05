@@ -1,0 +1,5 @@
+netatmo:
+  client_id: 'CLIENT_ID'
+  client_secret: 'CLIENT_SECRET'
+  username: 'NETATMO_USER'
+  password: 'NETATMO_PASS'
