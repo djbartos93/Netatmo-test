@@ -11,6 +11,9 @@ def config
   @config ||= YAML.load_file(CONFIG_FILE)['netatmo']
 end
 
+def renew
+  @renew ||= YAML.load_file(TOKEN_FILE)
+
 def get_token
   uri = URI.parse("http://api.netatmo.net/oauth2/token")
   JSON.parse Net::HTTP.post_form(uri, {
@@ -22,6 +25,14 @@ def get_token
     'scope' => 'read_station'
   }).body
 end
+
+def toke_renew
+  uri = URI.parse("http://api.netatmo.net/oauth2/token")
+  JSON.parse Net::HTTP.post_form(uri, {
+    'grant_type' => 'refresh_token',
+    'refresh_token' => renew['refresh_token'],
+    'client_id' => config['client_id'],
+    'client_secret' => config['client_secret']})
 
 def save_token(token_info)
   token_file = File.open(TOKEN_FILE, 'w')
