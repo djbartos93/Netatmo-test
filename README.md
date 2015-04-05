@@ -1,6 +1,9 @@
+Netatmo API Test
+======
+
 Testing repo for a larger project
 
-TO DO:
+# TO DO:
 - [ ] WORKING WITH API
   - [ ] token/access
     - [x] get access token
