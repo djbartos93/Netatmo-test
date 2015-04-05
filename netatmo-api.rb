@@ -29,7 +29,7 @@ def renew_token(refresh_token)
     'grant_type' => 'refresh_token',
     'refresh_token' => refresh_token,
     'client_id' => config['client_id'],
-    'client_secret' => config['client_secret']})
+    'client_secret' => config['client_secret']}).body
 end
 
 def save_token(token_info)
