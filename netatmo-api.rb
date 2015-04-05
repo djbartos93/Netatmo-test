@@ -11,10 +11,6 @@ def config
   @config ||= YAML.load_file(CONFIG_FILE)['netatmo']
 end
 
-def renew
-  @renew ||= YAML.load_file(TOKEN_FILE)
-end
-
 def get_token
   uri = URI.parse("http://api.netatmo.net/oauth2/token")
   JSON.parse Net::HTTP.post_form(uri, {
@@ -27,11 +23,11 @@ def get_token
   }).body
 end
 
-def toke_renew
+def renew_token(refresh_token)
   uri = URI.parse("http://api.netatmo.net/oauth2/token")
   JSON.parse Net::HTTP.post_form(uri, {
     'grant_type' => 'refresh_token',
-    'refresh_token' => renew['refresh_token'],
+    'refresh_token' => refresh_token,
     'client_id' => config['client_id'],
     'client_secret' => config['client_secret']})
 end
@@ -48,10 +44,11 @@ def token
   begin
     @token ||= YAML.load_file TOKEN_FILE
   rescue Exception
-    @token = nil
+    @token = get_token
+    save_token @token
   end
-  if !@token || @token['timestamp'] + @token['expires_in'] < Time.now
-    @token = renew_token
+  if @token['timestamp'] + @token['expires_in'] < Time.now
+    @token = renew_token @token['refresh_token']
     save_token @token
   end
   @token
