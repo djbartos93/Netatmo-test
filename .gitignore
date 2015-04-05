@@ -6,6 +6,7 @@ netatmo-temp.rb
 .token.yaml
 config.yml
 config/
+user.yaml
 
 ## Specific to RubyMotion:
 .dat*
