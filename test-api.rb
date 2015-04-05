@@ -7,9 +7,15 @@ require 'json'
 CONFIG_FILE = 'config.yml'
 TOKEN_FILE = '.token.yaml'
 USER_FILE = 'user.yaml'
+DEVICE_FILE = 'device.yaml'
+MEASURE_FILE = 'measurements.yaml'
 
 def measure_config
   @measure_config ||= YAML.load_file(TOKEN_FILE)
+end
+
+def read_config
+  @read_config ||= YAML.load_file(DEVICE_FILE)
 end
 
 #get user and save info to file
@@ -21,11 +27,34 @@ def getuser
   'access_token' => measure_config['access_token']}).body
   user_file = File.open(USER_FILE, 'w')
   user_file.write YAML.dump user_info
+  user_file.flush
+  user_file.close
 end
 
+#this gets all of the device info and puts it into the device.yaml file
+#this DOES NOT provide the most up to date measurements
 
-puts measure_config
-puts getuser
+def get_device
+  File.open TOKEN_FILE
+  uri = URI.parse('http://api.netatmo.net/api/devicelist')
+  device_info = JSON.parse Net::HTTP.post_form(uri, {
+  'access_token' => measure_config['access_token']
+  }).body
+  device_file = File.open(DEVICE_FILE, 'w')
+  device_file.write YAML.dump device_info
+  device_file.flush
+  device_file.close
+end
+
+def current_temp
+  File.open TOKEN_FILE
+  File.open DEVICE_FILE
+  uri = URI.parse('http://api.netatmo.net/api/getmeasure')
+  current_temp = JSON.parse Net::HTTP.post_form(uri, {
+  'access_token' => measure_config['access_token'],
+  'device_id' = => read_config['main_device'],
+  'module_id' => read_config[]
+
 =begin
 uri = URI.parse('http://api.netatmo.net/api/getmeasure?')
 JSON.parse Net::HTTP.post_form(uri, {
