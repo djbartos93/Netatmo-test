@@ -33,7 +33,7 @@ end
 
 def token
   @token ||= YAML.load_file TOKEN_FILE
-  if @token['timestamp'] + @token['expires_in'] < Time.now
+  if @token['timestamp'] + @token['expires_in'] < Time.now || !@token
     @token = get_token
     save_token @token
   end
