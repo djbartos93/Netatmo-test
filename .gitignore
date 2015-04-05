@@ -7,6 +7,8 @@ netatmo-temp.rb
 config.yml
 config/
 user.yaml
+device.yaml
+measure.yaml
 
 ## Specific to RubyMotion:
 .dat*
