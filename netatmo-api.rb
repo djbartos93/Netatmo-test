@@ -35,9 +35,18 @@ end
 def save_token(token_info)
   @token = get_token
   token_info['timestamp'] = Time.now
+  token_file = File.open TOKEN_FILE, 'w'
   token_file.write YAML.dump token_info
   token_file.flush
   token_file.close
+end
+
+def check_token(token)
+  if token['timestamp'] + token['expires_in'] < Time.now
+    token = renew_token token['refresh_token']
+    save_token token
+  end
+  token
 end
 
 def token
@@ -47,11 +56,8 @@ def token
     @token = get_token
     save_token @token
   end
-  if @token['timestamp'] + @token['expires_in'] < Time.now
-    @token = renew_token @token['refresh_token']
-    save_token @token
-  end
-  @token
+  
+  check_token @token
 end
 
 puts token['access_token']
