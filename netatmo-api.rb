@@ -32,7 +32,11 @@ def save_token(token_info)
 end
 
 def token
-  @token ||= YAML.load_file TOKEN_FILE
+  begin
+    @token ||= YAML.load_file TOKEN_FILE
+  rescue Exception
+    @token = nil
+  end
   if !@token || @token['timestamp'] + @token['expires_in'] < Time.now
     @token = get_token
     save_token @token
