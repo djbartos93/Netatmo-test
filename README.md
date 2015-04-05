@@ -1,7 +1,7 @@
 Testing repo for a larger project
 
 TO DO:
--[ ] WORKING WITH API
+- [ ] WORKING WITH API
   - [ ] token/access
     - [x] get access token
     - [x] save access token
@@ -18,52 +18,52 @@ TO DO:
       - [ ] buy rain gauge first
     - [ ] figure out if forecast is sent in api
     - [ ] figure out if weather warnings show up in api
--[ ] API FILE
-  -[x] access token stuff
-  -[ ] user info stuff
-  -[ ] temp measure (outdoor)
-    -[ ] min
-    -[ ] max
-    -[ ] day
-    -[ ] day max/min
-    -[ ] week
-    -[ ] week max/min
-    -[ ] month
-    -[ ] month max/min
-    -[ ] "maximum" max/min
-  -[ ] temp measure (indoor)
-    -[ ] min
-    -[ ] max
-    -[ ] day
-    -[ ] day max/min
-    -[ ] week
-    -[ ] week max/min
-    -[ ] month
-    -[ ] month max/min
-    -[ ] "maximum" max/min
-  -[ ] Humidity (outdoor)
-    -[ ] min
-    -[ ] max
-    -[ ] day
-    -[ ] day max/min
-    -[ ] week
-    -[ ] week max/min
-    -[ ] month
-    -[ ] month max/min
-    -[ ] "maximum" max/min
-  -[ ] Humidity (outdoor)
-    -[ ] min
-    -[ ] max
-    -[ ] day
-    -[ ] day max/min
-    -[ ] week
-    -[ ] week max/min
-    -[ ] month
-    -[ ] month max/min
-    -[ ] "maximum" max/min
-  -[ ] CO2 measurements (maybe min max current?)
-  -[ ] dB measurements (agan maybe min max?)
-  -[ ] pressure (day min max?)
-  -[ ] rain (day min max) (depending on buying rain gauge)
--[ ] OTHER SHIT
+- [ ] API FILE
+  - [x] access token stuff
+  - [ ] user info stuff
+  - [ ] temp measure (outdoor)
+    - [ ] min
+    - [ ] max
+    - [ ] day
+    - [ ] day max/min
+    - [ ] week
+    - [ ] week max/min
+    - [ ] month
+    - [ ] month max/min
+    - [ ] "maximum" max/min
+  - [ ] temp measure (indoor)
+    - [ ] min
+    - [ ] max
+    - [ ] day
+    - [ ] day max/min
+    - [ ] week
+    - [ ] week max/min
+    - [ ] month
+    - [ ] month max/min
+    - [ ] "maximum" max/min
+  - [ ] Humidity (outdoor)
+    - [ ] min
+    - [ ] max
+    - [ ] day
+    - [ ] day max/min
+    - [ ] week
+    - [ ] week max/min
+    - [ ] month
+    - [ ] month max/min
+    - [ ] "maximum" max/min
+  - [ ] Humidity (outdoor)
+    - [ ] min
+    - [ ] max
+    - [ ] day
+    - [ ] day max/min
+    - [ ] week
+    - [ ] week max/min
+    - [ ] month
+    - [ ] month max/min
+    - [ ] "maximum" max/min
+  - [ ] CO2 measurements (maybe min max current?)
+  - [ ] dB measurements (agan maybe min max?)
+  - [ ] pressure (day min max?)
+  - [ ] rain (day min max) (depending on buying rain gauge)
+- [ ] OTHER SHIT
   for use in main repo
