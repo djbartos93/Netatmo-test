@@ -13,6 +13,7 @@ end
 
 def renew
   @renew ||= YAML.load_file(TOKEN_FILE)
+end
 
 def get_token
   uri = URI.parse("http://api.netatmo.net/oauth2/token")
@@ -33,9 +34,10 @@ def toke_renew
     'refresh_token' => renew['refresh_token'],
     'client_id' => config['client_id'],
     'client_secret' => config['client_secret']})
+end
 
 def save_token(token_info)
-  token_file = File.open(TOKEN_FILE, 'w')
+  @token = get_token
   token_info['timestamp'] = Time.now
   token_file.write YAML.dump token_info
   token_file.flush
@@ -49,7 +51,7 @@ def token
     @token = nil
   end
   if !@token || @token['timestamp'] + @token['expires_in'] < Time.now
-    @token = get_token
+    @token = renew_token
     save_token @token
   end
   @token
