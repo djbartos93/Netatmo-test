@@ -41,12 +41,12 @@ def save_token(token_info)
   token_file.close
 end
 
-def check_token(token)
-  if token['timestamp'] + token['expires_in'] < Time.now
-    token = renew_token token['refresh_token']
-    save_token token
+def check_token(token_to_check)
+  if token_to_check['timestamp'] + token_to_check['expires_in'] < Time.now
+    token_to_check = renew_token token_to_check['refresh_token']
+    save_token token_to_check
   end
-  token
+  token_to_check
 end
 
 def token
