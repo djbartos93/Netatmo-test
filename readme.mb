@@ -1,5 +1,69 @@
-To start off, this is going to be jank.
+Testing repo for a larger project
 
-TO DO
-
- [x] Authentication - get access token. 
+TO DO:
+-[ ] WORKING WITH API
+  - [ ] token/access
+    - [x] get access token
+    - [x] save access token
+    - [x] use renew token rather than getting new token when expired
+    - [ ] fix error when .token.yaml file doesnt exist
+  - [ ] measurements/other calls
+    - [x] get user info & save to file
+    - [ ] get temperature (in and outdoor)
+    - [ ] get humidity (in and outdoor)
+    - [ ] get dB
+    - [ ] get CO2
+    - [ ] get pressure
+    - [ ] get rain info
+      - [ ] buy rain gauge first
+    - [ ] figure out if forecast is sent in api
+    - [ ] figure out if weather warnings show up in api
+-[ ] API FILE
+  -[x] access token stuff
+  -[ ] user info stuff
+  -[ ] temp measure (outdoor)
+    -[ ] min
+    -[ ] max
+    -[ ] day
+    -[ ] day max/min
+    -[ ] week
+    -[ ] week max/min
+    -[ ] month
+    -[ ] month max/min
+    -[ ] "maximum" max/min
+  -[ ] temp measure (indoor)
+    -[ ] min
+    -[ ] max
+    -[ ] day
+    -[ ] day max/min
+    -[ ] week
+    -[ ] week max/min
+    -[ ] month
+    -[ ] month max/min
+    -[ ] "maximum" max/min
+  -[ ] Humidity (outdoor)
+    -[ ] min
+    -[ ] max
+    -[ ] day
+    -[ ] day max/min
+    -[ ] week
+    -[ ] week max/min
+    -[ ] month
+    -[ ] month max/min
+    -[ ] "maximum" max/min
+  -[ ] Humidity (outdoor)
+    -[ ] min
+    -[ ] max
+    -[ ] day
+    -[ ] day max/min
+    -[ ] week
+    -[ ] week max/min
+    -[ ] month
+    -[ ] month max/min
+    -[ ] "maximum" max/min
+  -[ ] CO2 measurements (maybe min max current?)
+  -[ ] dB measurements (agan maybe min max?)
+  -[ ] pressure (day min max?)
+  -[ ] rain (day min max) (depending on buying rain gauge)
+-[ ] OTHER SHIT
+  for use in main repo
