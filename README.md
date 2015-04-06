@@ -10,6 +10,7 @@ Testing repo for a larger project
     - [x] save access token
     - [x] use renew token rather than getting new token when expired
     - [ ] fix error when .token.yaml file doesnt exist
+    - [ ] fix check_token undefined variable
   - [ ] measurements/other calls
     - [x] get user info & save to file
     - [ ] get temperature (in and outdoor)
