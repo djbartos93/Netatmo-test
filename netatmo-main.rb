@@ -74,6 +74,8 @@ def outdoor_temp
   temp_file.write YAML.dump temp_out
 end
 
+#gets indoor temp from api
+
 def indoor_temp
   File.open TOKEN_FILE
   puts "getting current indoor temperature (c)..."

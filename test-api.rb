@@ -55,6 +55,8 @@ def get_device
   device_file.close
 end
 
+#gets outdoor_temp
+
 def outdoor_temp
   File.open TOKEN_FILE
   puts "getting current outdoor temperature (c)..."
@@ -72,6 +74,8 @@ def outdoor_temp
   temp_file = File.open(OUTDOOR_TEMP, 'w')
   temp_file.write YAML.dump temp_out
 end
+
+#gets indoor_temp
 
 def indoor_temp
   File.open TOKEN_FILE
@@ -91,6 +95,8 @@ def indoor_temp
   temp_file.write YAML.dump temp_in
 end
 
+#gets outdoor humidity
+
 def outdoor_humidity
   File.open TOKEN_FILE
   puts "getting current outdoor humidity..."
@@ -108,6 +114,8 @@ def outdoor_humidity
   temp_file = File.open(OUTDOOR_HUMID, 'w')
   temp_file.write YAML.dump humid_out
 end
+
+#gets indoor humidity
 
 def indoor_humidity
   File.open TOKEN_FILE
