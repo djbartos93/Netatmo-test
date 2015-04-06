@@ -14,8 +14,8 @@ Testing repo for a larger project
   - [ ] measurements/other calls
     - [x] get user info & save to file
     - [x] get temperature outdoor (saved to file)
-    - [ ] get temperature indoor
-    - [ ] get humidity (in and outdoor)
+    - [x] get temperature indoor
+    - [x] get humidity (in and outdoor)
     - [ ] get dB
     - [ ] get CO2
     - [ ] get pressure
@@ -79,3 +79,5 @@ Testing repo for a larger project
 Notes
 ======
 in device.yaml there is "dashboard_data" this is the most recent measurement taken by the weather station this will always show the most recent.
+
+max and min temps found in the dashboard_data, quicker and easier than getting them via the API
