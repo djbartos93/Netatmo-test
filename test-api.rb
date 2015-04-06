@@ -8,8 +8,10 @@ CONFIG_FILE = 'config.yml'
 TOKEN_FILE = '.token.yaml'
 USER_FILE = 'user.yaml'
 DEVICE_FILE = 'device.yaml'
-OUTDOOR_FILE = 'outdoor_temp.yaml'
-INDOOR_FILE = 'indoor_temp.yaml'
+OUTDOOR_TEMP = 'outdoor_temp.yaml'
+INDOOR_TEMP = 'indoor_temp.yaml'
+OUTDOOR_HUMID = 'outdoor_humid.yaml'
+INDOOR_HUMID = 'indoor_humid.yaml'
 
 def measure_config
   @measure_config ||= YAML.load_file(TOKEN_FILE)
@@ -55,7 +57,7 @@ end
 
 def outdoor_temp
   File.open TOKEN_FILE
-  puts "getting outdoor temperature (c)..."
+  puts "getting current outdoor temperature (c)..."
   time= Time.now.utc.nsec
   uri = URI.parse('http://api.netatmo.net/api/getmeasure')
   temp_out = JSON.parse Net::HTTP.post_form(uri, {
@@ -67,7 +69,7 @@ def outdoor_temp
   'type' => 'temperature',
   'real_time' => 'true'
   }).body
-  temp_file = File.open(OUTDOOR_FILE, 'w')
+  temp_file = File.open(OUTDOOR_TEMP, 'w')
   temp_file.write YAML.dump temp_out
 end
 
@@ -85,11 +87,47 @@ def indoor_temp
   'type' => 'temperature',
   'real_time' => 'true'
   }).body
-  temp_file = File.open(INDOOR_FILE, 'w')
+  temp_file = File.open(INDOOR_TEMP, 'w')
   temp_file.write YAML.dump temp_in
 end
 
-puts indoor_temp
+def outdoor_humidity
+  File.open TOKEN_FILE
+  puts "getting current outdoor humidity..."
+  time= Time.now.utc.nsec
+  uri = URI.parse('http://api.netatmo.net/api/getmeasure')
+  humid_out = JSON.parse Net::HTTP.post_form(uri, {
+  'access_token' => measure_config['access_token'],
+  'device_id' => read_config_modules['main_device'],
+  'module_id' => read_config_modules['_id'],
+  'date_end' => 'last',
+  'scale' => 'max',
+  'type' => 'humidity',
+  'real_time' => 'true'
+  }).body
+  temp_file = File.open(OUTDOOR_HUMID, 'w')
+  temp_file.write YAML.dump humid_out
+end
+
+def indoor_humidity
+  File.open TOKEN_FILE
+  puts "getting current indoor humidity..."
+  time= Time.now.utc.nsec
+  uri = URI.parse('http://api.netatmo.net/api/getmeasure')
+  humid_in = JSON.parse Net::HTTP.post_form(uri, {
+  'access_token' => measure_config['access_token'],
+  'device_id' => read_config_modules['main_device'],
+  'module_id' => read_config_indoor[['modules']],
+  'date_end' => 'last',
+  'scale' => 'max',
+  'type' => 'humidity',
+  'real_time' => 'true'
+  }).body
+  temp_file = File.open(INDOOR_HUMID, 'w')
+  temp_file.write YAML.dump humid_in
+end
+
+puts outdoor_temp
 
 
 =begin
