@@ -4,7 +4,7 @@ require 'uri'
 require 'json'
 require 'yaml'
 
-CONFIG_FILE = 'config.yml'
+CONFIG_FILE = 'config.yaml'
 TOKEN_FILE = '.token.yaml'
 
 #begin authentication section
