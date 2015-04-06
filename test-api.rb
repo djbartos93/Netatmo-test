@@ -15,7 +15,7 @@ def measure_config
 end
 
 def read_config
-  @read_config ||= YAML.load_file(DEVICE_FILE)['body']
+  @read_config ||= YAML.load_file(DEVICE_FILE)['body']['modules'][0]
 end
 
 #get user and save info to file
@@ -51,11 +51,13 @@ end
 def outdoor_temp
   File.open TOKEN_FILE
   puts "getting current temperature (c)..."
+  time= Time.now.utc.nsec
   uri = URI.parse('http://api.netatmo.net/api/getmeasure')
   temp_info = JSON.parse Net::HTTP.post_form(uri, {
   'access_token' => measure_config['access_token'],
-  'device_id' => '70:ee:50:06:02:1c',
-  'module_id' => '02:00:00:06:05:6c',
+  'device_id' => read_config['main_device'],
+  'module_id' => read_config['_id'],
+  'date_end' => 'last',
   'scale' => 'max',
   'type' => 'temperature',
   'real_time' => 'true'
