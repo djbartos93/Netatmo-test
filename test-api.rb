@@ -8,20 +8,21 @@ CONFIG_FILE = 'config.yml'
 TOKEN_FILE = '.token.yaml'
 USER_FILE = 'user.yaml'
 DEVICE_FILE = 'device.yaml'
-MEASURE_FILE = 'measurements.yaml'
+MEASURE_FILE = 'outdoor_temp.yaml'
 
 def measure_config
   @measure_config ||= YAML.load_file(TOKEN_FILE)
 end
 
 def read_config
-  @read_config ||= YAML.load_file(DEVICE_FILE)['modules']
+  @read_config ||= YAML.load_file(DEVICE_FILE)['body']
 end
 
 #get user and save info to file
 
 def get_user
   File.open TOKEN_FILE
+  puts "getting user info..."
   uri = URI.parse('http://api.netatmo.net/api/getuser')
   user_info = JSON.parse Net::HTTP.post_form(uri, {
   'access_token' => measure_config['access_token']}).body
@@ -36,6 +37,7 @@ end
 
 def get_device
   File.open TOKEN_FILE
+  puts "getting device info..."
   uri = URI.parse('http://api.netatmo.net/api/devicelist')
   device_info = JSON.parse Net::HTTP.post_form(uri, {
   'access_token' => measure_config['access_token']
@@ -46,26 +48,24 @@ def get_device
   device_file.close
 end
 
-def current_temp
+def outdoor_temp
   File.open TOKEN_FILE
-  File.open DEVICE_FILE
+  puts "getting current temperature (c)..."
   uri = URI.parse('http://api.netatmo.net/api/getmeasure')
-  current_temp = JSON.parse Net::HTTP.post_form(uri, {
+  temp_info = JSON.parse Net::HTTP.post_form(uri, {
   'access_token' => measure_config['access_token'],
-  'device_id' => read_config['main_device'],
-  'module_id' => read_config['main_device'],
-  'scale' => '30min',
+  'device_id' => '70:ee:50:06:02:1c',
+  'module_id' => '02:00:00:06:05:6c',
+  'scale' => 'max',
   'type' => 'temperature',
-  'limit' => '1'})
-  temp_file = File.open(MEASURE_FILE)
-  temp_file.write YAML.dump current_temp
-  temp_file.flush
-  temp_file.close
+  'real_time' => 'true'
+  }).body
+  temp_file = File.open(MEASURE_FILE, 'w')
+  temp_file.write YAML.dump temp_info
 end
 
-puts get_user
-puts get_device
-puts current_temp
+puts outdoor_temp
+
 =begin
 uri = URI.parse('http://api.netatmo.net/api/getmeasure?')
 JSON.parse Net::HTTP.post_form(uri, {
