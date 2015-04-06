@@ -13,7 +13,8 @@ Testing repo for a larger project
     - [ ] fix check_token undefined variable
   - [ ] measurements/other calls
     - [x] get user info & save to file
-    - [ ] get temperature (in and outdoor)
+    - [x] get temperature outdoor (saved to file)
+    - [ ] get temperature indoor
     - [ ] get humidity (in and outdoor)
     - [ ] get dB
     - [ ] get CO2
@@ -22,6 +23,8 @@ Testing repo for a larger project
       - [ ] buy rain gauge first
     - [ ] figure out if forecast is sent in api
     - [ ] figure out if weather warnings show up in api
+    - [ ] convert units to imperial units
+    - [ ] read temperature files
 - [ ] API FILE
   - [x] access token stuff
   - [ ] user info stuff
