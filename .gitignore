@@ -11,6 +11,8 @@ device.yaml
 measure.yaml
 outdoor_temp.yaml
 indoor_temp.yaml
+indoor_humid.yaml
+outdoor_humid.yaml
 
 ## Specific to RubyMotion:
 .dat*
