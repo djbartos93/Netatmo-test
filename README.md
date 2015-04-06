@@ -74,3 +74,8 @@ Testing repo for a larger project
   - [ ] rain (day min max) (depending on buying rain gauge)
 - [ ] OTHER SHIT
   for use in main repo
+
+
+Notes
+======
+in device.yaml there is "dashboard_data" this is the most recent measurement taken by the weather station this will always show the most recent.

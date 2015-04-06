@@ -10,6 +10,7 @@ user.yaml
 device.yaml
 measure.yaml
 outdoor_temp.yaml
+indoor_temp.yaml
 
 ## Specific to RubyMotion:
 .dat*
