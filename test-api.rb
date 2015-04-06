@@ -127,8 +127,20 @@ def indoor_humidity
   temp_file.write YAML.dump humid_in
 end
 
-puts outdoor_temp
+def temp_output
+  @temp_output ||= YAML.load_file(OUTDOOR_TEMP)['body'][0]
+  puts @temp_output['value']
+end
 
+puts temp_output
+=begin
+puts get_user
+puts get_device
+puts indoor_temp
+puts indoor_humidity
+puts outdoor_humidity
+puts outdoor_temp
+=end
 
 =begin
 uri = URI.parse('http://api.netatmo.net/api/getmeasure?')
