@@ -1,3 +1,5 @@
+#This is only for testing. Main project is now in the repo Piatmometer
+
 Netatmo API Test
 ======
 
@@ -16,15 +18,15 @@ Testing repo for a larger project
     - [x] get temperature outdoor (saved to file)
     - [x] get temperature indoor
     - [x] get humidity (in and outdoor)
-    - [ ] get dB
-    - [ ] get CO2
-    - [ ] get pressure
+    - [x] get dB
+    - [x] get CO2
+    - [x] get pressure
     - [ ] get rain info
       - [ ] buy rain gauge first
-    - [ ] figure out if forecast is sent in api
-    - [ ] figure out if weather warnings show up in api
+    - [x] figure out if forecast is sent in api ( its not )
+    - [x] figure out if weather warnings show up in api (yes as meto_alarms as far as i know.)
     - [ ] convert units to imperial units
-    - [ ] read temperature files
+    - [x] read temperature files (new plan no longer using files.)
 - [ ] API FILE
   - [x] access token stuff
   - [ ] user info stuff
