@@ -1,0 +1,34 @@
+<h3> This is a test page all measurements are in metric </h3>
+<p>
+current outdoor Temp is: <%= @data_outside['Temperature'] %>
+</p>
+<p>
+  current outdoor humidity is: <%= @data_outside['Humidity'] %>
+</p>
+<p>
+  The max temperature this station has recorded outside is <%= @data_outside['max_temp'] %> on <%= @data_outside['date_max_temp'] %>
+</p>
+<p>
+  The minimum temperature this station has recorded outside is <%= @data_outside['min_temp'] %>
+</p>
+<p>
+  The current temp inside is <%= @data_inside['Temperature'] %>
+</p>
+<p>
+  The current indoor humidity is <% @data_inside['Humidity'] %>
+</p>
+<p>
+  The AbsolutePressure is <%= @data_inside['AbsolutePressure'] %>
+</p>
+<p>
+  The indoor CO2 is <%= @data_inside['CO2'] %> ppm
+</p>
+<p>
+  The max temperature this station has recorded inside is <%= @data_inside['min_temp'] %>
+</p>
+<p>
+  The minimum temperature this staiton has recorded inside is <%= @data_inside['max_temp'] %>
+</p>
+<p>
+  The current noise level inside is <%= @data_inside['Noise'] %>
+</p>
