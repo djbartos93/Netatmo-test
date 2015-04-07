@@ -2,6 +2,7 @@ require 'net/https'
 require 'uri'
 require 'yaml'
 require 'json'
+require 'sinatra'
 #this file is for testing api calls before placing them into the proper file
 
 CONFIG_FILE = 'config.yml'
@@ -131,8 +132,11 @@ def indoor_humidity
   'type' => 'humidity',
   'real_time' => 'true'
   }).body
-  temp_file = File.open(INDOOR_HUMID, 'w')
-  temp_file.write YAML.dump humid_in
+  return humid_in['body'][0]
+end
+
+def data
+  humid_inside = indoor_humidity['body'][0]
 end
 
 def temp_output
@@ -140,7 +144,14 @@ def temp_output
   puts @temp_output['value']
 end
 
-puts temp_output
+get '/' do
+  "humidity #{indoor_humidity['value']}"
+end
+
+get '/out' do
+  erb :humidity
+end
+
 =begin
 puts get_user
 puts get_device
