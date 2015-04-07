@@ -144,12 +144,35 @@ def temp_output
   puts @temp_output['value']
 end
 
-get '/' do
-  "humidity #{indoor_humidity['value']}"
+
+def dashboard_data_out
+  File.open TOKEN_FILE
+  puts "getting dashboard data..."
+  uri = URI.parse('http://api.netatmo.net/api/devicelist')
+  dashboard = JSON.parse Net::HTTP.post_form(uri, {
+    'access_token' => measure_config['access_token']
+    }).body
+  @out = dashboard['body']['modules'][0]
+  @in = dashboard['body']['devices'][0]
+  @outdoor_data = @out["dashboard_data"]
 end
 
-get '/out' do
-  erb :humidity
+def dashboard_data_in
+  File.open TOKEN_FILE
+  puts "getting dashboard data..."
+  uri = URI.parse('http://api.netatmo.net/api/devicelist')
+  dashboard = JSON.parse Net::HTTP.post_form(uri, {
+    'access_token' => measure_config['access_token']
+    }).body
+  @out = dashboard['body']['modules'][0]
+  @in = dashboard['body']['devices'][0]
+  @indoor_data = @in["dashboard_data"]
+end
+
+get '/' do
+  "#{@data_outside = dashboard_data_out}"
+  "#{@data_inside = dashboard_data_in}"
+  erb :measure
 end
 
 =begin
