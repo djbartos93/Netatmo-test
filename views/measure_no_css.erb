@@ -1,0 +1,37 @@
+<h3> This is a test page all measurements are in metric </h3>
+<h3> Last measure at <%= Time.now %> </h3>
+
+<h1>Current Alerts</h1>
+<% @alerts.each do |alert| %>
+  <p class="alert">
+    <span><%= alert['text_field'] %></span>
+    <br>
+    <%= alert['descr'] %>
+  </p>
+<% end %>
+
+<h1>Outdoor Conditions</h1>
+<p>
+  temp is <%= @outdoor_temp %>
+  <br>
+  humidity is <%= @outdoor_humidity %>
+  <br>
+  The outdoor Max temp is <%= @max_outdoor_temp %> at <%= @outdoor_max_date %>
+  <br>
+  The outdoor Min Temp is <%= @min_outdoor_temp %> at <%= @outdoor_min_date %>
+</p>
+
+<h1>Indoor Conditions</h1>
+<p>
+  temp is <%= @indoor_temp %>
+  <br>
+  humidity is <%= @indoor_humidity %>
+  <br>
+  indoor CO2 is <%= @co2 %>ppm
+  <br>
+  It is <%= @noise %> dB inside
+  <br>
+  the barametric pressure is <%= @pressure %>
+  <br>
+  pressure in mbar is <%= @pressure_mb %>
+</p>
