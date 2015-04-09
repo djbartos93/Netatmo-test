@@ -172,3 +172,6 @@ end
 
 # Get main device from module at index 0
 puts get_device['modules'][0]['main_device']
+
+# Readable time
+Time.at(1428458280).asctime
