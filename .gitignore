@@ -40,3 +40,5 @@ build/
 .rvmrc
 
 device multiple alerts.yaml
+
+device with alert for testing.yaml
