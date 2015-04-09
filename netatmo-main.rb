@@ -3,7 +3,7 @@ require 'net/https'
 require 'uri'
 require 'json'
 require 'yaml'
-require 'sinatra'
+#require 'sinatra'
 
 CONFIG_FILE = 'config.yml'
 TOKEN_FILE = '.token.yaml'
@@ -135,6 +135,4 @@ def temp_output
   puts @temp_output['value']
 end
 
-get '/out' do
-  "#{puts temp_output}"
-end
+puts get_device
