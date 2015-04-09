@@ -33,3 +33,10 @@ current outdoor Temp is: <%= @data_outside['Temperature'] %>
 <p>
   The current noise level inside is <%= @data_inside['Noise'] %>
 </p>
+
+<% @alerts.each do |alert| if @alerts %>
+  <p class="alert">
+    <span><%= alert['text_field'] %></span>
+    <%= alert['descr'] %>
+  </p>
+<% end %>
