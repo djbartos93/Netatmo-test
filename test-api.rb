@@ -159,22 +159,67 @@ def indoor_humidity
   }).body)['body']
 end
 
-def test_data
+def dash_out
   get_device['modules'][0]['dashboard_data']
 end
 
+def dash_in
+  get_device['devices'][0]['dashboard_data']
+end
+
+
+######Temperature calls from dashboard data########
+out_temp = dash_out['Temperature']
+out_humidity = dash_out['Humidity']
+in_temp = dash_in['Temperature']
+in_humidity = dash_in['Humidity']
+pressure_mbar = dash_in['Pressure']
+out_max_at = dash_out['date_max_temp']
+out_max = dash_out['max_temp']
+out_min = dash_out['min_temp']
+out_min_at = dash_out['date_min_temp']
+
+
+
+
+#############UNIT CONVERSIONS############
+def temp_convert(tc)
+  tf = (tc) * 1.8 + 32
+end
+
+def pressure_convert(pmb)
+  pmmgh = (0.750062 * (pmb))
+end
+
+def std_time(es)
+  Time.at(es).asctime
+end
+
+
+
 get '/' do
-#  @indoor_temp = indoor_temp[0]
-#  @outdoor_temp = outdoor_temp 0
-#  @indoor_humidity = indoor_humidity
-#  @outdoor_humidity = outdoor_humidity 0
-  @test = test_data
+  #outdoor temp/humidity
+  @outdoor_temp = temp_convert(out_temp)
+  @outdoor_humidity = out_humidity
+  @outdoor_max_temp = temp_convert(out_max)
+  @outdoor_max_date = std_time(out_max_at)
+  @outdoor_min_temp = temp_convert(out_min)
+  @outdoor_min_date = std_time(out_min_at)
+  #indoor all measures
+  @indoor_temp = temp_convert(in_temp)
+  @indoor_humidity = in_humidity
+  @co2 = dash_in['CO2']
+  @pressure = pressure_convert(pressure_mbar)
+  @pressure_mb = dash_in['Pressure']
+  @noise = dash_in['Noise']
 
   # Get alerts if any
   @alerts = get_device['devices'][0]['meteo_alarms']
 
   erb :measure
 end
+
+
 
 
 
