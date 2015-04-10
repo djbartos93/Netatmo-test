@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="layout.css">
 </head>
 
-<h3> This is a test page all measurements are in metric </h3>
+<h3 class="section_heads"> This is a test page all measurements are in metric </h3>
 <h3> Last measure at <%= Time.now %> </h3>
 
 <h1 class="curret_alerts">Current Alerts</h1>
@@ -14,18 +14,18 @@
   </p>
 <% end %>
 
-<h1 class="outdoor_conditions">Outdoor Conditions</h1>
+<h1 class="section_heads">Outdoor Conditions</h1>
 <p class="out_data">
   temp is <%= @outdoor_temp %>
   <br>
   humidity is <%= @outdoor_humidity %>
   <br>
-  The outdoor Max temp is <%= @max_outdoor_temp %> at <%= @outdoor_max_date %>
+  The outdoor Max temp is <%= @outdoor_max_temp %> at <%= @outdoor_max_date %>
   <br>
-  The outdoor Min Temp is <%= @min_outdoor_temp %> at <%= @outdoor_min_date %>
+  The outdoor Min Temp is <%= @outdoor_min_temp %> at <%= @outdoor_min_date %>
 </p>
 
-<h1 class="indoor_conditions">Indoor Conditions</h1>
+<h1 class="section_heads">Indoor Conditions</h1>
 <p class="in_data">
   temp is <%= @indoor_temp %>
   <br>

@@ -82,8 +82,7 @@ end
 #this gets all of the device info and puts it into the device.yaml file
 
 def get_device
-  puts "getting device info..."
-
+  
   uri = URI.parse('http://api.netatmo.net/api/devicelist')
 
   JSON.parse(Net::HTTP.post_form(uri, {
@@ -167,21 +166,6 @@ def dash_in
   get_device['devices'][0]['dashboard_data']
 end
 
-
-######Temperature calls from dashboard data########
-out_temp = dash_out['Temperature']
-out_humidity = dash_out['Humidity']
-in_temp = dash_in['Temperature']
-in_humidity = dash_in['Humidity']
-pressure_mbar = dash_in['Pressure']
-out_max_at = dash_out['date_max_temp']
-out_max = dash_out['max_temp']
-out_min = dash_out['min_temp']
-out_min_at = dash_out['date_min_temp']
-
-
-
-
 #############UNIT CONVERSIONS############
 def temp_convert(tc)
   tf = (tc) * 1.8 + 32
@@ -199,17 +183,17 @@ end
 
 get '/' do
   #outdoor temp/humidity
-  @outdoor_temp = temp_convert(out_temp)
-  @outdoor_humidity = out_humidity
-  @outdoor_max_temp = temp_convert(out_max)
-  @outdoor_max_date = std_time(out_max_at)
-  @outdoor_min_temp = temp_convert(out_min)
-  @outdoor_min_date = std_time(out_min_at)
+  @outdoor_temp = temp_convert(dash_out['Temperature'])
+  @outdoor_humidity = dash_out['Humidity']
+  @outdoor_max_temp = temp_convert(dash_out['max_temp'])
+  @outdoor_max_date = std_time(dash_out['date_max_temp'])
+  @outdoor_min_temp = temp_convert(dash_out['min_temp'])
+  @outdoor_min_date = std_time(dash_out['date_min_temp'])
   #indoor all measures
-  @indoor_temp = temp_convert(in_temp)
-  @indoor_humidity = in_humidity
+  @indoor_temp = temp_convert(dash_in['Temperature'])
+  @indoor_humidity = dash_in['Humidity']
   @co2 = dash_in['CO2']
-  @pressure = pressure_convert(pressure_mbar)
+  @pressure = pressure_convert(dash_in['Pressure'])
   @pressure_mb = dash_in['Pressure']
   @noise = dash_in['Noise']
 
@@ -218,11 +202,6 @@ get '/' do
 
   erb :measure
 end
-
-
-
-
-
 
 # Get main device from module at index 0
 #puts get_device['modules'][0]['_id']
