@@ -82,7 +82,7 @@ end
 #this gets all of the device info and puts it into the device.yaml file
 
 def get_device
-  
+
   uri = URI.parse('http://api.netatmo.net/api/devicelist')
 
   JSON.parse(Net::HTTP.post_form(uri, {
@@ -179,9 +179,9 @@ def std_time(es)
   Time.at(es).asctime
 end
 
+###########Web Pages#########
 
-
-get '/' do
+get '/all' do
   #outdoor temp/humidity
   @outdoor_temp = temp_convert(dash_out['Temperature'])
   @outdoor_humidity = dash_out['Humidity']
@@ -202,6 +202,46 @@ get '/' do
 
   erb :measure
 end
+
+get '/outdoor' do
+  @outdoor_temp = temp_convert(dash_out['Temperature'])
+  @outdoor_humidity = dash_out['Humidity']
+  @outdoor_max_temp = temp_convert(dash_out['max_temp'])
+  @outdoor_max_date = std_time(dash_out['date_max_temp'])
+  @outdoor_min_temp = temp_convert(dash_out['min_temp'])
+  @outdoor_min_date = std_time(dash_out['date_min_temp'])
+
+  erb :outdoor
+end
+
+#indoor data
+
+get '/indoor' do
+  @indoor_temp = temp_convert(dash_in['Temperature'])
+  @indoor_humidity = dash_in['Humidity']
+  @co2 = dash_in['CO2']
+  @pressure = pressure_convert(dash_in['Pressure'])
+  @pressure_mb = dash_in['Pressure']
+  @noise = dash_in['Noise']
+  
+  erb :indoor
+end
+
+get '/alert' do
+  @alerts = get_device['devices'][0]['meteo_alarms']
+
+  erb :alert
+end
+
+get '/info' do
+
+  erb :info
+
+
+get '/' do
+  erb :main_page
+end
+
 
 # Get main device from module at index 0
 #puts get_device['modules'][0]['_id']
