@@ -7,6 +7,8 @@
     <div id="outdoor"></div>
     <div id="indoor"></div>
     <div id="alert"></div>
+    <h3>Current Conditions from NOAA</h3>
+    <div id="forcast"></div>
       <script>
       $(document).ready(function(){
         $('#outdoor').load('outdoor');
@@ -31,5 +33,14 @@
         }, 300000);
 });
       </script>
+    </script>
+    <script>
+    $(document).ready(function(){
+      $('#forcast').load('forcast');
+      setInterval(function(){
+        $('#forcast').load('forcast');
+      }, 300000);
+});
+    </script>
   </body>
 </html>

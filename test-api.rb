@@ -242,6 +242,10 @@ get '/' do
   erb :main_page
 end
 
+get '/forcast' do
+  erb :forcast
+end
+
 
 # Get main device from module at index 0
 #puts get_device['modules'][0]['_id']

@@ -1,23 +1,19 @@
-<html>
-  <head>
-    <title></title>
-  </head>
-  <body>
-    <h1 class="section_heads">Indoor Conditions</h1>
-    <p class="in_data">
-      temp is <%= @indoor_temp %>
-      <br>
-      humidity is <%= @indoor_humidity %>
-      <br>
-      indoor CO2 is <%= @co2 %>ppm
-      <br>
-      It is <%= @noise %> dB inside
-      <br>
-      the barametric pressure is <%= @pressure %>
-      <br>
-      pressure in mbar is <%= @pressure_mb %>
-      <br>
-      Last server push at <%= @last_seen %>
-    </p>
-  </body>
-</html>
+<body>
+<h1 class="section_heads">Indoor Conditions</h1>
+<p class="data">
+  temp is <%= @indoor_temp %>
+  <br>
+  humidity is <span class="values"><%= @indoor_humidity %></span>
+  <br>
+  indoor CO2 is <%= @co2 %>ppm
+  <br>
+  It is <%= @noise %> dB inside
+  <br>
+  the barametric pressure is <%= @pressure %>
+  <br>
+  pressure in mbar is <%= @pressure_mb %>
+</p>
+<p>
+  Last server push at <%= @last_seen %>
+</p>
+</body>

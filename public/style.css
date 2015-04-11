@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @font-face {
 	font-family: main_font;
-	src: url(fonts/Turnpike.ttf)
+	src: url(fonts/Champagne_imousines.ttf)
 }
 @font-face {
 	font-family: test;
@@ -13,12 +13,17 @@ body {
 
 .outdoor_conditions {
 	color: #0032FF;
-	font-family: test;
-	font-size:large;
+	font-family: main_font;
+	font-size: 15pt;
+	margin-left: auto;
+	margin-right: auto;
+	width: 6em;
 }
 .section_heads {
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #0900E5;
+	margin-left: auto;
+	margin-right: auto;
 }
 .out_data {
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -33,4 +38,9 @@ body {
 
 .alert {
 	font-gamily: Gotham, "Helvetica Neue", Helvetica, Arial,
+}
+
+.values {
+	font-family: test, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20pt;
 }
