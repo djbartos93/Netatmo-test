@@ -1,7 +1,11 @@
 @charset "UTF-8";
 @font-face {
 	font-family: main_font;
-	src: url(Intro_Cond_Light.otf)
+	src: url(fonts/Turnpike.ttf)
+}
+@font-face {
+	font-family: test;
+	src: url(fonts/Esqadero_FF_CY_4F-Regular.ttf)
 }
 body {
 	background-color: #CCCCCC;
@@ -9,7 +13,8 @@ body {
 
 .outdoor_conditions {
 	color: #0032FF;
-	font-family: main_font;
+	font-family: test;
+	font-size:large;
 }
 .section_heads {
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
