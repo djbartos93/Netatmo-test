@@ -1,0 +1,14 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1 class="curret_alerts">Current Alerts</h1>
+    <% @alerts.each do |alert| %>
+      <p class="alert">
+        <span><%= alert['text_field'] %></span>
+        <br>
+        <%= alert['descr'] %>
+      </p>
+    <% end %>
+  </body>
+</html>

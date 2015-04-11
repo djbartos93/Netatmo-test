@@ -3,7 +3,7 @@
 </head>
 
 <h3 class="section_heads"> This is a test page all measurements are in metric </h3>
-<h3> Last measure at <%= Time.now %> </h3>
+<h3> Last page update at <%= Time.now %> </h3>
 
 <h1 class="curret_alerts">Current Alerts</h1>
 <% @alerts.each do |alert| %>
@@ -38,4 +38,7 @@
   the barametric pressure is <%= @pressure %>
   <br>
   pressure in mbar is <%= @pressure_mb %>
+</p>
+<p>
+  Last server push at <%= @last_seen %>
 </p>

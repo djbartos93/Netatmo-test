@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body {
+	background-color: #CCCCCC;
+}
 .outdoor_conditions {
 	color: #0032FF;
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;

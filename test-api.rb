@@ -196,6 +196,8 @@ get '/all' do
   @pressure = pressure_convert(dash_in['Pressure'])
   @pressure_mb = dash_in['Pressure']
   @noise = dash_in['Noise']
+  #time last seen
+  @last_seen = std_time(dash_out['time_utc'])
 
   # Get alerts if any
   @alerts = get_device['devices'][0]['meteo_alarms']
@@ -210,6 +212,7 @@ get '/outdoor' do
   @outdoor_max_date = std_time(dash_out['date_max_temp'])
   @outdoor_min_temp = temp_convert(dash_out['min_temp'])
   @outdoor_min_date = std_time(dash_out['date_min_temp'])
+  @last_seen = std_time(dash_out['time_utc'])
 
   erb :outdoor
 end
@@ -223,7 +226,8 @@ get '/indoor' do
   @pressure = pressure_convert(dash_in['Pressure'])
   @pressure_mb = dash_in['Pressure']
   @noise = dash_in['Noise']
-  
+  @last_seen = std_time(dash_out['time_utc'])
+
   erb :indoor
 end
 
@@ -232,10 +236,6 @@ get '/alert' do
 
   erb :alert
 end
-
-get '/info' do
-
-  erb :info
 
 
 get '/' do
