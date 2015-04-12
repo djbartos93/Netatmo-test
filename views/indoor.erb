@@ -1,19 +1,24 @@
-<body>
+
 <h1 class="section_heads">Indoor Conditions</h1>
-<p class="data">
-  temp is <%= @indoor_temp %>
-  <br>
-  humidity is <span class="values"><%= @indoor_humidity %></span>
-  <br>
-  indoor CO2 is <%= @co2 %>ppm
-  <br>
-  It is <%= @noise %> dB inside
-  <br>
-  the barametric pressure is <%= @pressure %>
-  <br>
-  pressure in mbar is <%= @pressure_mb %>
-</p>
-<p>
-  Last server push at <%= @last_seen %>
-</p>
-</body>
+<table class="data">
+  <tr>
+    <td>Current Temperature</td>
+    <td class="values"><%= @indoor_temp %></td>
+  </tr>
+  <tr>
+    <td>Current Humidity</td>
+    <td class="values"><%= @indoor_humidity %> </td>
+  </tr>
+  <tr>
+    <td>Current CO2 Level</td>
+    <td class="values"> <%= @co2 %> PPM </td>
+  </tr>
+  <tr>
+    <td>Barametric Pressure</td>
+    <td class="values"><%= @pressure %> mmhg</td>
+  </tr>
+  <tr>
+    <td>It is currently</td>
+    <td class="values"> <%= @noise %> dB </td>
+  </tr>
+</table>

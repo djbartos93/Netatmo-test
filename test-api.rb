@@ -169,10 +169,12 @@ end
 #############UNIT CONVERSIONS############
 def temp_convert(tc)
   tf = (tc) * 1.8 + 32
+  tf.round(3)
 end
 
 def pressure_convert(pmb)
   pmmgh = (0.750062 * (pmb))
+  pmmgh.round(3)
 end
 
 def std_time(es)
@@ -239,6 +241,7 @@ end
 
 
 get '/' do
+  @last_seen = std_time(dash_out['time_utc'])
   erb :main_page
 end
 

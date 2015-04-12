@@ -1,17 +1,19 @@
-<html>
-  <head>
-    <title></title>
-  </head>
-  <body>
-    <h1 class="section_heads">Outdoor Conditions</h1>
-    <p class="outdoor_conditions">
-      Current Temperature <%= @outdoor_temp %>
-      <br>
-      Current Humidity <%= @outdoor_humidity %>
-      <br>
-      The outdoor Max temp is <%= @outdoor_max_temp %> at <%= @outdoor_max_date %>
-      <br>
-      The outdoor Min Temp is <%= @outdoor_min_temp %> at <%= @outdoor_min_date %>
-    </p>
-  </body>
-</html>
+<h1 class="section_heads">Current Outdoor Conditions</h1>
+<table class="data">
+  <tr>
+    <td>Current Temperature</td>
+    <td class="values"><%= @outdoor_temp %></td>
+  </tr>
+  <tr>
+    <td>Current Humidity</td>
+    <td class="values"><%= @outdoor_humidity %> </td>
+  </tr>
+  <tr>
+    <td>Outdoor Max Temp</td>
+    <td><%= @outdoor_max_temp %> at <%= @outdoor_max_date %></td>
+  </tr>
+  <tr>
+    <td>Outdoor Min Temp</td>
+    <td> <%= @outdoor_min_temp %> at <%= @outdoor_min_date %> </td>
+  </tr>
+</table>
