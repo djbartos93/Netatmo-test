@@ -11,6 +11,23 @@ body {
 	background-color: #CCCCCC;
 }
 
+.outdoor_data {
+    width: 300px;
+    padding: 25px;
+    border: 25px solid navy;
+    margin: 25px;
+		float: right;
+}
+
+.indoor_data {
+    width: 300px;
+    padding: 25px;
+    border: 25px solid navy;
+    margin: 25px;
+		float: left;
+		margin-left: 10em;
+}
+
 .data {
 	color: #0032FF;
 	font-family: main_font;
