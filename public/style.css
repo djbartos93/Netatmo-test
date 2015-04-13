@@ -10,55 +10,34 @@
 body {
 	background-color: #CCCCCC;
 }
+#container1 {
+	float: left;
+	width: 100%;
+}
 
 .outdoor_data {
-    width: 300px;
-    padding: 25px;
-    border: 25px solid navy;
-    margin: 25px;
-		float: right;
+	width: 50em;
+	height: 50em;
+	float: left;
+	width: 50%;
+
 }
 
 .indoor_data {
-    width: 300px;
-    padding: 25px;
-    border: 25px solid navy;
-    margin: 25px;
-		float: left;
-		margin-left: 10em;
+	width: 50em;
+	height: 50em;
+	float: left;
+	width: 50%;
 }
 
-.data {
-	color: #0032FF;
-	font-family: main_font;
-	font-size: 15pt;
-	margin-left:auto;
-	margin-right:auto;
-	width:auto;
-
-}
-.section_heads {
-	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #0900E5;
+#container2 {
 	text-align: center;
+	float: left;
+	width: 100%;
 }
-.out_data {
-	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.in_data {
-	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.curret_alerts {
-	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #FF0004;
+
+#container3 {
 	text-align: center;
-}
-
-.alert {
-	font-gamily: Gotham, "Helvetica Neue", Helvetica, Arial,
-}
-
-.values {
-	font-family: test, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 20pt;
+	float: left;
+	width: 100%
 }

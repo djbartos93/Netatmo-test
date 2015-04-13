@@ -7,6 +7,7 @@ require 'sinatra'
 
 CONFIG_FILE = 'config.yaml'
 TOKEN_FILE = '.token.yaml'
+DASHBOARD = 'dashboard.yaml'
 
 ######## API Auth #########
 #begin authentication section
@@ -89,6 +90,10 @@ def get_device
     'access_token' => token['access_token']
   }).body)['body']
 end
+
+def dashboard
+  dashboard_file = File.open TOKEN_FILE, 'w'
+  dashboard_file.write YAML.dump token_info
 
 #gets outdoor_temp
 def outdoor_temp(device_id)
@@ -248,6 +253,9 @@ end
 get '/forcast' do
   erb :forcast
 end
+
+puts token
+puts get_device
 
 
 # Get main device from module at index 0

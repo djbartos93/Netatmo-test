@@ -2,9 +2,9 @@
   <head>
   </head>
   <body>
-    <h1 class="curret_alerts">Current Alerts</h1>
+    <h1>Current Alerts</h1>
     <% @alerts.each do |alert| %>
-      <p class="alert">
+      <p>
         <span><%= alert['text_field'] %></span>
         <br>
         <%= alert['descr'] %>
