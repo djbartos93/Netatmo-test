@@ -94,6 +94,7 @@ end
 def dashboard
   dashboard_file = File.open TOKEN_FILE, 'w'
   dashboard_file.write YAML.dump token_info
+end
 
 #gets outdoor_temp
 def outdoor_temp(device_id)
@@ -253,9 +254,6 @@ end
 get '/forcast' do
   erb :forcast
 end
-
-puts token
-puts get_device
 
 
 # Get main device from module at index 0
