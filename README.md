@@ -1,6 +1,4 @@
-#This is only for testing. Main project is now in the repo Piatmometer
-
-Netatmo API Test
+Netatmo weather dashboard
 ======
 
 Testing repo for a larger project
@@ -27,59 +25,18 @@ Testing repo for a larger project
     - [x] figure out if weather warnings show up in api (yes as meto_alarms as far as i know.)
     - [ ] convert units to imperial units
     - [x] read temperature files (new plan no longer using files.)
-- [ ] API FILE
-  - [x] access token stuff
-  - [ ] user info stuff
-  - [ ] temp measure (outdoor)
-    - [ ] min
-    - [ ] max
-    - [ ] day
-    - [ ] day max/min
-    - [ ] week
-    - [ ] week max/min
-    - [ ] month
-    - [ ] month max/min
-    - [ ] "maximum" max/min
-  - [ ] temp measure (indoor)
-    - [ ] min
-    - [ ] max
-    - [ ] day
-    - [ ] day max/min
-    - [ ] week
-    - [ ] week max/min
-    - [ ] month
-    - [ ] month max/min
-    - [ ] "maximum" max/min
-  - [ ] Humidity (outdoor)
-    - [ ] min
-    - [ ] max
-    - [ ] day
-    - [ ] day max/min
-    - [ ] week
-    - [ ] week max/min
-    - [ ] month
-    - [ ] month max/min
-    - [ ] "maximum" max/min
-  - [ ] Humidity (outdoor)
-    - [ ] min
-    - [ ] max
-    - [ ] day
-    - [ ] day max/min
-    - [ ] week
-    - [ ] week max/min
-    - [ ] month
-    - [ ] month max/min
-    - [ ] "maximum" max/min
-  - [ ] CO2 measurements (maybe min max current?)
-  - [ ] dB measurements (agan maybe min max?)
-  - [ ] pressure (day min max?)
-  - [ ] rain (day min max) (depending on buying rain gauge)
-- [ ] OTHER SHIT
-  for use in main repo
+- [ ] Admin interface
+  - [ ]
+- [ ] cleaner style
+- [ ] gemfile
+- [ ] make properly deployable
 
-
-Notes
+Running notes
 ======
-in device.yaml there is "dashboard_data" this is the most recent measurement taken by the weather station this will always show the most recent.
+This is not yet ready for proper delpoy. however you can still run it.
 
-max and min temps found in the dashboard_data, quicker and easier than getting them via the API
+I have yet to add a gemfile
+
+To configure put your netatmo info in the config.example.yaml and rename it to config.yaml
+
+you may also want to change the title of the web page, located in views > main_page.erb
