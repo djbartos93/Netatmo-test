@@ -266,6 +266,9 @@ get '/forcast' do
   erb :forcast
 end
 
+get '/admin' do
+  erb :admin
+
 
 # Get main device from module at index 0
 #puts get_device['modules'][0]['_id']
