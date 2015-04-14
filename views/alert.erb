@@ -1,7 +1,4 @@
 <html>
-  <head>
-  </head>
-  <body id="alert_body">
     <h1 id="alert_head">Current Alerts</h1>
     <% @alerts.each do |alert| %>
       <p id="alert_text">
@@ -10,5 +7,4 @@
         <%= alert['descr'] %>
       </p>
     <% end %>
-  </body>
 </html>
