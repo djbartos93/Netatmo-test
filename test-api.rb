@@ -186,6 +186,17 @@ end
 def std_time(es)
   Time.at(es).asctime
 end
+##########Other APIs#########
+#Couchpotato
+
+def couch
+
+  uri = URI.parse('http://srv.bartos.media/api/2a14d72fb7ac45e59f656b05d7bfe9e6/dashboard.soon')
+
+  JSON.parse(Net::HTTP.post_form(uri, {
+  }).body)['body']
+end
+
 
 ###########Web Pages#########
 
