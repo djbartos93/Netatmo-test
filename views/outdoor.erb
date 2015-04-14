@@ -2,18 +2,19 @@
 <table class="center" class="data">
   <tr>
     <td>Current Temperature</td>
-    <td class="values"><%= @outdoor_temp %></td>
+    <td class="values"><%= @outdoor_temp %>&deg;F</td>
   </tr>
   <tr>
     <td>Current Humidity</td>
-    <td class="values"><%= @outdoor_humidity %> </td>
+    <td class="values"><%= @outdoor_humidity %>% </td>
   </tr>
+  <br>
   <tr>
     <td>Outdoor Max Temp</td>
-    <td><%= @outdoor_max_temp %> at <%= @outdoor_max_date %></td>
+    <td><%= @outdoor_max_temp %>&deg;F at <%= @outdoor_max_date %></td>
   </tr>
   <tr>
     <td>Outdoor Min Temp</td>
-    <td> <%= @outdoor_min_temp %> at <%= @outdoor_min_date %> </td>
+    <td> <%= @outdoor_min_temp %>&deg;F at <%= @outdoor_min_date %> </td>
   </tr>
 </table>

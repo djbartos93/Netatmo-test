@@ -1,10 +1,8 @@
-<html>
     <h1 id="alert_head">Current Alerts</h1>
     <% @alerts.each do |alert| %>
-      <p id="alert_text">
-        <span><%= alert['text_field'] %></span>
+      <p>
+        <span class="alert_name"><%= alert['text_field'] %></span>
         <br>
-        <%= alert['descr'] %>
+        <span class="alert_body_text"><%= alert['descr'] %></span>
       </p>
     <% end %>
-</html>
