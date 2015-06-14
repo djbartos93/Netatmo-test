@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+gem 'net/https'
+gem 'uri'
+gem 'yaml'
+gem 'json'
+gem 'sinatra'

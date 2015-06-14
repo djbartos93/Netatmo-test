@@ -296,6 +296,14 @@ get '/test' do
   puts token
 end
 
+get '/map' do
+  erb :map
+end
+
+get '/cam' do
+  erb :weather_view
+end
+
 # Get main device from module at index 0
 #puts get_device['modules'][0]['_id']
 
