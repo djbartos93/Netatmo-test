@@ -217,10 +217,10 @@ end
 
 def couch
 
-  uri = URI.parse('http://srv.bartos.media/api/2a14d72fb7ac45e59f656b05d7bfe9e6/dashboard.soon')
+  uri = URI.parse('http://172.16.0.15:5050/api/2a14d72fb7ac45e59f656b05d7bfe9e6/notification.list')
 
   JSON.parse(Net::HTTP.post_form(uri, {
-  }).body)['body']
+  }).notifications)['notifications']
 end
 
 
@@ -303,6 +303,12 @@ end
 get '/cam' do
   erb :weather_view
 end
+
+get '/couch' do
+  puts :couch
+  print "couch"
+end
+
 
 # Get main device from module at index 0
 #puts get_device['modules'][0]['_id']
