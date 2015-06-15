@@ -16,6 +16,12 @@
   <div id="container2" >
     <div id="alert" class="alerts" class="animate pulse"></div>
   </div>
+  <div id="container4">
+    <div id="map"></div>
+  </div>
+  <div id="container5">
+    <div id="cam"></div>
+  </div>
       <script>
       $(document).ready(function(){
         $('#outdoor').load('outdoor');
@@ -46,6 +52,22 @@
       $('#forcast').load('forcast');
       setInterval(function(){
         $('#forcast').load('forcast');
+      }, 300000);
+});
+    </script>
+    <script>
+    $(document).ready(function(){
+      $('#map').load('map');
+      setInterval(function(){
+        $('#map').load('map');
+      }, 300000);
+});
+    </script>
+    <script>
+    $(document).ready(function(){
+      $('#cam').load('cam');
+      setInterval(function(){
+        $('#cam').load('cam');
       }, 300000);
 });
     </script>

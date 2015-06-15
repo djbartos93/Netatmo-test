@@ -90,7 +90,7 @@ body {
 	text-align: center;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	float: left;
-	width: 100%
+	width: 100%;
 }
 
 .forcast {
@@ -102,6 +102,17 @@ body {
     border: 5px solid navy;
 		hight: 245px;
     margin: 25px;
+}
+
+#container4 {
+	float: center;
+	width: 30%;
+}
+
+#map_embed {
+	width: 30%;
+	hight: auto;
+
 }
 
 table.center {

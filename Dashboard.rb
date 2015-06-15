@@ -21,7 +21,10 @@ end
 
 def get_token
   puts "getting token"
-  uri = URI.parse("http://api.netatmo.net/oauth2/token")
+  uri = URI.parse("https://api.netatmo.net/oauth2/token")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
   JSON.parse Net::HTTP.post_form(uri, {
     'grant_type' => 'password',
     'client_id' => config['client_id'],
@@ -35,7 +38,10 @@ end
 #renew_token, following the API guidelines using the refresh token to get a new token when token expires.
 
 def renew_token(refresh_token)
-  uri = URI.parse("http://api.netatmo.net/oauth2/token")
+  uri = URI.parse("https://api.netatmo.net/oauth2/token")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
   JSON.parse Net::HTTP.post_form(uri, {
     'grant_type' => 'refresh_token',
     'refresh_token' => refresh_token,
@@ -84,7 +90,11 @@ end
 
 def get_device
 
-  uri = URI.parse('http://api.netatmo.net/api/devicelist')
+  uri = URI.parse('https://api.netatmo.net/api/devicelist')
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
   JSON.parse(Net::HTTP.post_form(uri, {
     'access_token' => token['access_token']
@@ -100,7 +110,11 @@ end
 def outdoor_temp(device_id)
   puts "getting current outdoor temperature (c)..."
 
-  uri = URI.parse('http://api.netatmo.net/api/getmeasure')
+  uri = URI.parse('https://api.netatmo.net/api/getmeasure')
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
   JSON.parse(Net::HTTP.post_form(uri, {
     'access_token' => token['access_token'],
@@ -117,7 +131,11 @@ end
 def indoor_temp
   puts "getting current indoor temperature (c)..."
 
-  uri = URI.parse('http://api.netatmo.net/api/getmeasure')
+  uri = URI.parse('https://api.netatmo.net/api/getmeasure')
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
   JSON.parse(Net::HTTP.post_form(uri, {
     'access_token' => token['access_token'],
@@ -134,7 +152,11 @@ end
 def outdoor_humidity(device_id)
   puts "getting current outdoor humidity..."
 
-  uri = URI.parse('http://api.netatmo.net/api/getmeasure')
+  uri = URI.parse('https://api.netatmo.net/api/getmeasure')
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
   JSON.parse(Net::HTTP.post_form(uri, {
   'access_token' => token['access_token'],
@@ -151,7 +173,11 @@ end
 def indoor_humidity
   puts "getting current indoor humidity..."
 
-  uri = URI.parse('http://api.netatmo.net/api/getmeasure')
+  uri = URI.parse('https://api.netatmo.net/api/getmeasure')
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
   JSON.parse(Net::HTTP.post_form(uri, {
   'access_token' => token['access_token'],
@@ -191,10 +217,10 @@ end
 
 def couch
 
-  uri = URI.parse('http://srv.bartos.media/api/2a14d72fb7ac45e59f656b05d7bfe9e6/dashboard.soon')
+  uri = URI.parse('http://172.16.0.15:5050/api/2a14d72fb7ac45e59f656b05d7bfe9e6/notification.list')
 
   JSON.parse(Net::HTTP.post_form(uri, {
-  }).body)['body']
+  }).notifications)['notifications']
 end
 
 
@@ -266,8 +292,27 @@ get '/forcast' do
   erb :forcast
 end
 
+<<<<<<< HEAD
 get '/admin' do
   erb :admin
+=======
+get '/test' do
+  puts token
+end
+
+get '/map' do
+  erb :map
+end
+
+get '/cam' do
+  erb :weather_view
+end
+
+get '/couch' do
+  puts :couch
+  print "couch"
+end
+>>>>>>> master
 
 
 # Get main device from module at index 0
