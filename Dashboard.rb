@@ -292,10 +292,6 @@ get '/forcast' do
   erb :forcast
 end
 
-<<<<<<< HEAD
-get '/admin' do
-  erb :admin
-=======
 get '/test' do
   puts token
 end
@@ -312,7 +308,6 @@ get '/couch' do
   puts :couch
   print "couch"
 end
->>>>>>> master
 
 
 # Get main device from module at index 0
