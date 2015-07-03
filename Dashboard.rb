@@ -281,7 +281,9 @@ get '/alert' do
   erb :alert
 end
 
-
+before do
+  cache_control :public, :must_revalidate, :max_age => 10
+end
 get '/' do
   @last_seen = std_time(dash_out['time_utc'])
   erb :main_page
@@ -302,6 +304,7 @@ end
 get '/cam' do
   erb :weather_view
 end
+
 
 get '/couch' do
   puts :couch

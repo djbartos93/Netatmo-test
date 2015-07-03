@@ -67,8 +67,8 @@
     $(document).ready(function(){
       $('#cam').load('cam');
       setInterval(function(){
-        $('#cam').load('cam');
-      }, 300000);
+        $('#cam').load(('cam')+'?'+Math.random());
+      }, 60000);
 });
     </script>
   </body>

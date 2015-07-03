@@ -117,12 +117,14 @@ body {
 }
 
 #container5 {
+	position: absolute;
 	float: right;
+	width: 100%;
 }
 
 #cam_embed {
-	width: 50%;
-	float: left;
+	width: 23%;
+	float: right;
 }
 table.center {
 	margin-left:auto;
