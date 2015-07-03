@@ -111,19 +111,17 @@ body {
 }
 
 #map_embed {
-	width: 22%;
+	width: 23%;
 	hight: auto;
 
 }
 
 #container5 {
-	position: absolute;
-	right: auto;
-	width: 30;
+	float: right;
 }
 
 #cam_embed {
-	width: 10%;
+	width: 50%;
 	float: left;
 }
 table.center {

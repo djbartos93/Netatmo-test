@@ -3,7 +3,6 @@ require 'uri'
 require 'yaml'
 require 'json'
 require 'sinatra'
-#this file is for testing api calls before placing them into the proper file
 
 CONFIG_FILE = 'config.yaml'
 TOKEN_FILE = '.token.yaml'
