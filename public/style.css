@@ -105,16 +105,27 @@ body {
 }
 
 #container4 {
-	float: center;
-	width: 30%;
+	position: absolute;
+	float: left;
+	width: 100%;
 }
 
 #map_embed {
-	width: 30%;
+	width: 23%;
 	hight: auto;
 
 }
 
+#container5 {
+	position: absolute;
+	float: right;
+	width: 100%;
+}
+
+#cam_embed {
+	width: 23%;
+	float: right;
+}
 table.center {
 	margin-left:auto;
 	margin-right:auto;

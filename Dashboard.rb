@@ -3,7 +3,6 @@ require 'uri'
 require 'yaml'
 require 'json'
 require 'sinatra'
-#this file is for testing api calls before placing them into the proper file
 
 CONFIG_FILE = 'config.yaml'
 TOKEN_FILE = '.token.yaml'
@@ -282,7 +281,6 @@ get '/alert' do
   erb :alert
 end
 
-
 get '/' do
   @last_seen = std_time(dash_out['time_utc'])
   erb :main_page
@@ -303,6 +301,7 @@ end
 get '/cam' do
   erb :weather_view
 end
+
 
 get '/couch' do
   puts :couch
