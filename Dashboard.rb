@@ -214,26 +214,7 @@ end
 ##########Other APIs#########
 ##Wunderground##
 
-def wunderconfig
-  @wunderconfig ||= YAML.load_file(CONFIG_FILE)['netatmo']
-end
 
-def wunder_all
-  uri = URI.parse('http://api.wunderground.com/aip')
-  JSON.parse(Net::HTTP.post_form(uri, {
-  'key' => wunderconfig['key'],
-  'features' => wunderconfig['features']
-  'settings' => wunderconfig['settings']
-  'query' => wunderconfig['location_zip']
-  'format' => wunderconfig['format']
-
-  }).body)['body']
-  token_info['timestamp'] = Time.now
-  wunder = File.open TOKEN_FILE, 'w'
-  token_file.write YAML.dump token_info
-  token_file.flush
-  token_file.close
-end
 
 
 #Couchpotato#
